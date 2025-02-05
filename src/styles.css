@@ -1,0 +1,13 @@
+@import "assets/styles/theme.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Days One', sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-color);
+}
