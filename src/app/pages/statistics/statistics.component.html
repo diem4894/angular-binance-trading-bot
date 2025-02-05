@@ -1,0 +1,31 @@
+<main class="main" *ngIf="isLoader; else loader">
+  <p class="main__deposit">Deposit</p>
+  <div class="stat-futures">
+    <p class="stat-futures__title">Futures USDⓈ-M Futures</p>
+    <div class="stat-futures__box" *ngFor="let token of statisticsAccount">
+      <p class="stat-futures__symbol">{{token.asset}}</p>
+      <p class="stat-futures__balance">Balance: <span
+        [class.stat-futures__yellow]="stringToNumber(token.balance) > 0.1">{{editText.editToFixed2(token.balance)}}</span>
+      </p>
+      <p class="stat-futures__maxWithdrawAmount">max Withdraw Amount: <span
+        [class.stat-futures__yellow]="stringToNumber(token.balance) > 0.1">{{editText.editToFixed2(token.maxWithdrawAmount)}}</span>
+      </p>
+      <p class="stat-futures__crossUnPnl">crossUnPnl:
+        <span
+          [class.stat-futures__green]="stringToNumber(token.crossUnPnl) > 0.01"
+          [class.stat-futures__red]="stringToNumber(token.crossUnPnl) < 0"
+        >{{editText.editToFixed2(token.crossUnPnl)}}
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <p class="main__analysis">Analysis PNL</p>
+  <app-graph-statistics [allHistoryIncome]="incomeHistory"></app-graph-statistics>
+</main>
+
+<ng-template #loader>
+  <div class="loader">
+    <div></div>
+  </div>
+</ng-template>

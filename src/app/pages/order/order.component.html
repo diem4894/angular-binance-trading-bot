@@ -1,0 +1,36 @@
+<article class="wrapper">
+  <section class="header">
+    <p class="header__name">Symbol</p>
+    <p>Price</p>
+    <p>Buy</p>
+    <p>Liquidation</p>
+    <p class="header__amount">Amount</p>
+    <p class="header__pnl">PNL</p>
+    <button class="header__button-close" (click)="orderService.closeAllCurrentsOrders(allCurrentToken!)">Close all
+    </button>
+  </section>
+  <section class="main" *ngIf="isLoader; else loader">
+    <div class="warning" *ngIf="isCheckApi">
+      <img class="warning__image" src="assets/warning.svg" alt="warning">
+      <p class="warning__text">Check API key</p>
+    </div>
+    <div *ngFor="let currentToken of allCurrentToken;">
+      <app-order-row
+        [symbol]="currentToken.symbol"
+        [markPrice]="currentToken.markPrice"
+        [entryPrice]="currentToken.entryPrice"
+        [liquidationPrice]="currentToken.liquidationPrice"
+        [amount]="currentToken.positionAmt"
+        [pnlToken]="currentToken.unRealizedProfit">
+      </app-order-row>
+    </div>
+  </section>
+
+  <ng-template #loader>
+    <div class="loader">
+      <div></div>
+    </div>
+  </ng-template>
+  <app-new-order-params [ordersCreated]="ordersPlaced" (newOrderParamsEvent)="newOrderParamsEvent($event)"
+                        (cancelCreationNewOrders)="cancelCreationNewOrders()"></app-new-order-params>
+</article>

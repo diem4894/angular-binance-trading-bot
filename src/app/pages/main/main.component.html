@@ -1,0 +1,40 @@
+<main>
+  <article class="content">
+    <app-block-price *ngFor="let priceToken of priceTokensSave;"
+                     [nameToken]="priceToken.symbol"
+                     [priceToken]="priceToken.lastPrice"
+                     [h24Token]="editText.editToFixed2(priceToken.priceChangePercent)"
+                     [imgToken]="priceToken.symbol + '.png'"
+    ></app-block-price>
+    <section class="slang">
+      <div class="slang__text">
+        <p>Bot Binance</p>
+        <p>
+          created to facilitate
+          trading and increase
+          your income.
+        </p>
+        <button [routerLink]="'/order'">Trade now</button>
+      </div>
+      <div class="analytics_border"></div>
+    </section>
+    <section class="popular-list">
+      <h3>Popular cryptocurrencies</h3>
+      <div class="popular-list__column">
+        <span>Symbol</span>
+        <span>Last Price</span>
+        <span>24h Change</span>
+        <span class="popular-list__volume-24h">Volume 24h</span>
+      </div>
+      <div class="popular-list__row" *ngFor="let token of pricePercentSort | slice:0:10">
+        <app-list-top-token
+          [symbol]="token.symbol"
+          [lastPrice]="token.lastPrice"
+          [priceChangePercent]="token.priceChangePercent"
+          [volume]="token.volume"
+        ></app-list-top-token>
+      </div>
+    </section>
+  </article>
+</main>
+

@@ -1,0 +1,117 @@
+@import url("../../../loaders.css");
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+:host {
+  max-width: 1440px;
+  width: 100%;
+  min-height: 100%;
+}
+
+.wrapper {
+  display: grid;
+  align-items: stretch;
+  grid-template-areas:
+    "header aside"
+    "main aside";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 80% 20%;
+  background: url(../../../assets/background-order.png) no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+
+  .header {
+    margin: 0 0 0 25px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    grid-area: header;
+
+    p {
+      width: 14%;
+      font-size: 14px;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__button-close {
+      width: 26%;
+      height: 35px;
+      border-radius: 5px;
+      border: 0;
+      color: var(--color-black);
+      background-color: var(--color-price-down);
+      font-weight: 600;
+      cursor: pointer;
+
+    }
+
+    &__button-close:hover {
+      background-color: var(--color-price-close-hover);
+    }
+
+    &__button-close:active {
+      background-color: var(--color-price-close-active);
+    }
+  }
+
+  .main {
+    grid-area: main;
+
+    .warning {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      &__image {
+        width: 50px;
+        height: 50px;
+      }
+      &__text {
+        margin-left: 20px;
+        color: var(--color-warning);
+      }
+    }
+  }
+
+  app-new-order-params {
+    grid-area: aside;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      margin: 0;
+      padding: 5px 15px;
+    }
+
+    .main {
+      margin: 0;
+      padding: 20px 10px;
+    }
+
+    .example-form {
+      display: flex;
+      padding: 20px;
+      background-color: rgba(22, 26, 30, 0.07);
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .wrapper {
+    .header {
+      p {
+        display: none;
+      }
+    }
+  }
+}
