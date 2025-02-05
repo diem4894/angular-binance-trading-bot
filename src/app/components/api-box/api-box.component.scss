@@ -1,0 +1,18 @@
+.api {
+  mat-form-field {
+    width: 750px;
+  }
+
+  button {
+    margin-right: 30px;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .api {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}

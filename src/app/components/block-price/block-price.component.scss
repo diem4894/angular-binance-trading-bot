@@ -1,0 +1,56 @@
+@import url("../../../loaders.css");
+
+p {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.box {
+  width: 265px;
+  height: 150px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 1px 10px var(--box-shadow);
+  display: inline-block;
+  margin: 25px 0 0 40px;
+  position: relative;
+
+  &__close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  &__name {
+    font-size: 16px;
+    padding: 15px 0 0 30px;
+  }
+
+  &__price {
+    font-size: 30px;
+    padding: 15px 0 15px 30px;
+  }
+
+  &__24h {
+    width: 60px;
+    height: 25px;
+    font-size: 14px;
+    color: var(--color-price-up);
+    background: var(--color-price-up-shadow);
+    border-radius: 5px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_low {
+      color: var(--color-price-down);
+      background: var(--color-price-down-shadow);
+      font-size: 13px;
+    }
+  }
+}

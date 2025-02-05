@@ -1,0 +1,19 @@
+<form class="api" [formGroup]="apiFormGroup">
+  <h2 mat-dialog-title>API</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Api Key</mat-label>
+    <input matInput type="text" class="api__key" placeholder="API key" maxlength="100" formControlName="apiKeyControl" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Secret Key</mat-label>
+    <input matInput type="text" class="api__secret-key" placeholder="Secret key" maxlength="100"
+           formControlName="secretKeyControl" required>
+  </mat-form-field>
+
+  <div class="block-box">
+    <button mat-raised-button color="accent" [disabled]="apiFormGroup.invalid" (click)="saveApi()">Save API</button>
+    <button mat-stroked-button (click)="closeDialogBox()">Cancel</button>
+  </div>
+</form>
